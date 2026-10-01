@@ -13,9 +13,11 @@ Official website for Aks Communications — Business Facilitation & Execution.
 - GitHub Pages ready
 
 ## Contact
-Current website defaults use info@akscom.net and Lahore, Pakistan. Update these when the final approved contact details are available.
+- Email: info@akscom.net (main) · zafar@akscom.net (direct)
+- Phone / WhatsApp: +92 321 4331700
+- Location: 359 A Block Lake City Meadows, Lahore, Pakistan
 
-The inquiry form currently opens the visitor's email application (mailto); a server-side or form-service integration can be added later.
+The inquiry form posts to [FormSubmit](https://formsubmit.co) and is delivered to info@akscom.net. The first submission after any change of address triggers a one-time activation email to that inbox; click the link in it once. A WhatsApp chat button is on every screen.
 
 ## Deployment
 Enable GitHub Pages from the repository Settings → Pages, using the main branch and root folder.

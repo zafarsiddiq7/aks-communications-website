@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zafarsiddiq7.github.io/aks-communications-website/sitemap.xml
