@@ -37,6 +37,6 @@ linear-gradient(125deg,#010709 0%,#03181c 42%,#063e48 100%)}
 #msg.ok{color:#1b7a43;font-weight:700}#msg.err{color:#b3261e}#msg a{text-decoration:underline}.contact form button:disabled{opacity:.6;cursor:wait}
 
 #hero-net,#hero-vid{position:absolute;inset:0;width:100%;height:100%;display:block}
-#hero-vid{object-fit:cover;opacity:0;transition:opacity 1.2s;z-index:0}#hero-vid.on{opacity:.55}
+#hero-vid{object-fit:cover;opacity:0;transition:opacity 1.2s;z-index:0}#hero-vid.on{opacity:.9}.has-video #hero-net{display:none}
 #hero-net{opacity:.9;pointer-events:none}
 @media(prefers-reduced-motion:reduce){.hero *{animation:none!important}}

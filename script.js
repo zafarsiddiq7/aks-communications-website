@@ -34,7 +34,7 @@ form.addEventListener('submit',async e=>{
   if(!hero||!cv)return;
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   // Optional video: only shown if the file exists and can play
-  if(vid&&!reduce){vid.addEventListener('canplay',()=>{vid.classList.add('on');vid.play().catch(()=>{})},{once:true});vid.addEventListener('error',()=>vid.remove(),true);vid.querySelector('source').addEventListener('error',()=>vid.remove())}
+  if(vid&&!reduce){vid.addEventListener('canplay',()=>{vid.classList.add('on');hero.classList.add('has-video');vid.play().catch(()=>{})},{once:true});vid.addEventListener('error',()=>vid.remove(),true);vid.querySelector('source').addEventListener('error',()=>vid.remove())}
   else if(vid)vid.remove();
   const ctx=cv.getContext('2d');let w=0,h=0,dpr=1,nodes=[],raf=0,visible=true;
   const GOLD='224,196,148',TEAL='35,166,178',LINK=180;
