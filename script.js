@@ -27,3 +27,29 @@ form.addEventListener('submit',async e=>{
     msg.innerHTML='We could not send your inquiry. Please email <a href="mailto:info@akscom.net">info@akscom.net</a> or WhatsApp <a href="https://wa.me/923214331700">+92 321 4331700</a>.';
   }finally{btn.disabled=false}
 });
+
+// Hero background: connected-network animation (+ optional video at assets/hero.mp4)
+(()=>{
+  const hero=document.querySelector('.hero'),cv=document.getElementById('hero-net'),vid=document.getElementById('hero-vid');
+  if(!hero||!cv)return;
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Optional video: only shown if the file exists and can play
+  if(vid&&!reduce){vid.addEventListener('canplay',()=>{vid.classList.add('on');vid.play().catch(()=>{})},{once:true});vid.addEventListener('error',()=>vid.remove(),true);vid.querySelector('source').addEventListener('error',()=>vid.remove())}
+  else if(vid)vid.remove();
+  const ctx=cv.getContext('2d');let w=0,h=0,dpr=1,nodes=[],raf=0,visible=true;
+  const GOLD='224,196,148',TEAL='35,166,178',LINK=180;
+  function size(){dpr=Math.min(devicePixelRatio||1,2);w=hero.clientWidth;h=hero.clientHeight;cv.width=w*dpr;cv.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    const n=Math.round(Math.min(70,Math.max(24,w*h/22000)));
+    nodes=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.28,vy:(Math.random()-.5)*.28,r:Math.random()*1.8+1.4,c:Math.random()<.3?TEAL:GOLD}))}
+  function frame(){
+    ctx.clearRect(0,0,w,h);
+    for(const p of nodes){if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1}}
+    for(let i=0;i<nodes.length;i++){const a=nodes[i];
+      for(let j=i+1;j<nodes.length;j++){const b=nodes[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);
+        if(d<LINK){ctx.strokeStyle=`rgba(${a.c},${(1-d/LINK)*.75})`;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}}
+      ctx.fillStyle=`rgba(${a.c},1)`;ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,6.283);ctx.fill()}
+    if(!reduce&&visible)raf=requestAnimationFrame(frame)}
+  size();frame();
+  addEventListener('resize',()=>{size();if(reduce)frame()});
+  if(!reduce&&'IntersectionObserver'in window)new IntersectionObserver(([e])=>{visible=e.isIntersecting;cancelAnimationFrame(raf);if(visible)frame()}).observe(hero);
+})();
