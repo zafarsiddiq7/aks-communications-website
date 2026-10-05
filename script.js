@@ -11,7 +11,9 @@ const btn=form.querySelector('button[type="submit"]');
 form.addEventListener('submit',async e=>{
   e.preventDefault();
   const data=new FormData(form);
-  if(data.get('_honey'))return; // spam trap
+  if(data.get('_honey'))return;
+  // Use the customer's email as Reply-To so AKS can reply directly from the inquiry email.
+  data.set('_replyto', data.get('email')); // spam trap
   btn.disabled=true;
   msg.className='full';
   msg.textContent='Sending your inquiry…';
