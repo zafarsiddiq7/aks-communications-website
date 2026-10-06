@@ -6,8 +6,8 @@
     <stop offset="1" stop-color="#9d7442"/>
   </linearGradient>
 </defs>
-<g transform="translate(12 10)">
-  <polygon points="52,0 96,25 96,75 52,100 8,75 8,25" fill="none" stroke="url(#gold)" stroke-width="3"/>
-  <text x="52" y="59" text-anchor="middle" font-family="Georgia,serif" font-size="31" letter-spacing="4" fill="url(#gold)">AKS</text>
+<g transform="translate(7 6)">
+  <polygon points="53,0 106,30 106,90 53,120 0,90 0,30" fill="none" stroke="url(#gold)" stroke-width="3.5"/>
+  <text x="53" y="77" text-anchor="middle" font-family="Georgia,serif" font-size="40" font-weight="700" letter-spacing="1" fill="url(#gold)">AKS</text>
 </g>
 </svg>
